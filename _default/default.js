@@ -49,7 +49,6 @@ var _tests = {
 
 console.log('valid tests: ', Object.keys(_tests));
 
-var _X_repo = 'X';
 var _test = 'nii';
 
 if (location.href.match(/(\?)(\w*,*\w*)*/)) {
@@ -59,21 +58,24 @@ if (location.href.match(/(\?)(\w*,*\w*)*/)) {
   
   _test = _values[0];
   _test = _test.replace('?', '').replace('/', ''); // replace any ? or /
-  if (_values.length > 1) {
-    _X_repo = _values[1];
-    _X_repo = _X_repo.replace('?', '').replace('/', ''); // replace any ? or /
-  }
   
 }
-
-console.log('Testing against XTK repository: ../' + _X_repo);
+if (undefined === window.X) {
+  console.log('Testing against DEV TREE.');
+} else {
+  
+  console.log('Testing against BUILD TREE.');
+  
+}
 console.log('Running test: ' + _test);
 console.log('==========================================');
 
-goog.require('X.renderer3D');
-goog.require('X.mesh');
-goog.require('X.volume');
-goog.require('X.fibers');
+if (undefined === window.X) {
+  goog.require('X.renderer3D');
+  goog.require('X.mesh');
+  goog.require('X.volume');
+  goog.require('X.fibers');
+}
 
 // callback when google closure was loaded
 window.onload = function() {
@@ -84,6 +86,11 @@ window.onload = function() {
   run_test();
   
 };
+
+
+function done() {
+
+}
 
 
 // callback when xtk was loaded
@@ -125,7 +132,7 @@ function run_test() {
   } else {
     
     console.log('Loading ' + _test + '.js');
-    loadScript('tests/' + _test + '.js');
+    loadScript('tests/' + _test + '.js', done);
     
   }
   

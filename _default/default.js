@@ -43,6 +43,7 @@ var _tests = {
   'bin.stl': ['mesh'],
   'colortable': [null],
   'label': [null],
+  'dicom': [null],  
   'curvature': [null]
 
 };
@@ -113,7 +114,7 @@ function run_test() {
     test_renderer.init();
     
     // load a .vtk file
-    eval('var o = new X.' + _test_type);
+    eval('o = new X.' + _test_type);
     o.file = 'data/daniel.' + _test;
     o.color = [0, 0, 1];
     

@@ -43,7 +43,7 @@ var _tests = {
   'bin.stl': ['mesh'],
   'colortable': [null],
   'label': [null],
-  'dicom': [null],  
+  'dicom': [null],
   'curvature': [null]
 
 };
@@ -72,6 +72,7 @@ console.log('Running test: ' + _test);
 console.log('==========================================');
 
 if (undefined === window.X) {
+  goog.require('X.renderer2D');
   goog.require('X.renderer3D');
   goog.require('X.mesh');
   goog.require('X.volume');

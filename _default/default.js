@@ -44,7 +44,8 @@ var _tests = {
   'colortable': [null],
   'label': [null],
   'dicom': [null],
-  'curvature': [null]
+  'curvature': [null],
+  'particles': [null]
 
 };
 

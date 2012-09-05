@@ -45,7 +45,8 @@ var _tests = {
   'label': [null],
   'dicom': [null],
   'curvature': [null],
-  'particles': [null]
+  'particles': [null],
+  'seg': [null]
 
 };
 
